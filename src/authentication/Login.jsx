@@ -1,9 +1,6 @@
 import img2 from "../assets/login-background.png";
-import { useState, useEffect } from "react";
-import { createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword } from "firebase/auth";
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "../firebase.config.js";
-
+import { useAuthContext } from "../context/AuthContextProvider";
+import Card from 'react-bootstrap';
 
 const sidebarBackground = {
 	backgroundImage: "url(" + img2 + ")",
@@ -13,48 +10,8 @@ const sidebarBackground = {
 };
 
 const Login = () => {
-	const [registerEmail, setRegisterEmail] = useState("");
-	const [registerPassword, setRegisterPassword] = useState("");
-	const [loginEmail, setLoginEmail] = useState("");
-	const [loginPassword, setLoginPassword] = useState("");
-	const [user, setUser] = useState({});
 
-	useEffect(() => {
-		const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-			setUser(currentUser)
-		});
-		return unsubscribe;
-	}, []);
-
-	const register = async () => {
-		try {
-			const user = await createUserWithEmailAndPassword(
-				auth,
-				registerEmail,
-				registerPassword
-			)
-			console.log(user)
-		} catch (error) {
-			console.log(error.message);
-		}
-	}
-
-	const login = async () => {
-		try {
-			const user = await signInWithEmailAndPassword(
-				auth,
-				loginEmail,
-				loginPassword
-			)
-			console.log(user)
-		} catch (error) {
-			console.log(error.message);
-		}
-	}
-
-	const logout = async () => {
-		await signOut(auth);
-	}
+	const { setRegisterEmail, setRegisterPassword, setLoginEmail, setLoginPassword, register, login, logout, user } = useAuthContext();
 
 	return (
 		<div>
@@ -92,7 +49,7 @@ const Login = () => {
 						<h3>Logout</h3>
 					</div>
 					<div className="d-flex">
-						<button className="btn btn-secondary" onClick={logout}>Logout</button>
+						<button className="btn btn-secondary" onClick={logout}>Sign out</button>
 					</div>
 				</div>
 			</div>
