@@ -1,7 +1,7 @@
 import { createContext, useContext } from "react";
 import { useLocalStorage } from "../helpers/useLocalStorage.js"
 import { useState, useEffect } from "react";
-import { createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase.config.js";
 
@@ -50,6 +50,17 @@ function AuthContextProvider({ children }) {
 			console.log(error.message);
 		}
 	}
+	const loginGoogle = async () => {
+		const provider = new GoogleAuthProvider();
+		try {
+			const user = await signInWithPopup(
+				auth,
+				provider)
+			console.log(user)
+		} catch (error) {
+			console.log(error.message);
+		}
+	}
 
 	const logout = async () => {
 		await signOut(auth);
@@ -63,6 +74,7 @@ function AuthContextProvider({ children }) {
             setLoginPassword,
             register,
             login,
+			loginGoogle,
             logout,
             user
         }}>

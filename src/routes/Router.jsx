@@ -4,6 +4,8 @@ import TopNavBar from '../navigation/TopNavBar.jsx';
 import Login from '../authentication/Login.jsx';
 import Componente404 from '../components/Componente404.jsx';
 import AuthContextProvider from '../context/AuthContextProvider.jsx';
+import Widget from '../widget/Widget.jsx';
+import Exit from '../exit/Exit.jsx';
 
 const ThemeRoutes = () => {
 	return (
@@ -22,6 +24,8 @@ const ThemeRoutes = () => {
 						element={<Login />}
 					/>
 					<Route path='/authentication' element={<Login />} />
+					<Route path='/who' element={<Widget/>} />
+					<Route path='/logout' element={<Exit/>} />
 					<Route path='/notFound' element={<Componente404 />} />
 					<Route path='/*' element={<Navigate to='/' />} />
 				</Routes>
