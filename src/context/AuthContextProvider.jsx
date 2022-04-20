@@ -1,7 +1,12 @@
 import { createContext, useContext } from "react";
 import { useLocalStorage } from "../helpers/useLocalStorage.js"
 import { useState, useEffect } from "react";
-import { createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { createUserWithEmailAndPassword,
+	signOut,
+	signInWithEmailAndPassword,
+	signInWithPopup,
+	GoogleAuthProvider,
+	sendPasswordResetEmail } from "firebase/auth";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase.config.js";
 
@@ -16,6 +21,7 @@ function AuthContextProvider({ children }) {
 	const [registerPassword, setRegisterPassword] = useState("");
 	const [loginEmail, setLoginEmail] = useState("");
 	const [loginPassword, setLoginPassword] = useState("");
+	const [resetEmail, setResetEmail] = useState("");
 	const [user, setUser] = useState({});
 
 	useEffect(() => {
@@ -50,6 +56,21 @@ function AuthContextProvider({ children }) {
 			console.log(error.message);
 		}
 	}
+
+	const forgotPassword = async () => {
+		try {
+			const response = await sendPasswordResetEmail(
+				auth,
+				resetEmail,
+				{ url: 'http://localhost:3000/authentication'}
+			)
+			console.log(response)
+		} catch (error) {
+			alert('You must provide a valid email');
+			console.log(error.message);
+		}
+	}
+
 	const loginGoogle = async () => {
 		const provider = new GoogleAuthProvider();
 		try {
@@ -72,10 +93,12 @@ function AuthContextProvider({ children }) {
             setRegisterPassword,
             setLoginEmail,
             setLoginPassword,
+			setResetEmail,
             register,
             login,
 			loginGoogle,
             logout,
+			forgotPassword,
             user
         }}>
             {children}

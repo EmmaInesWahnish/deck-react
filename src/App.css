@@ -337,6 +337,14 @@ img#circle {
   color: purple;
 }
 
+.formWidth {
+ width: 250px;
+}
+
+.cardWidth {
+  width: 300px;
+}
+
 .paginationBttns{
   padding: 2px;
   width: 85%;
