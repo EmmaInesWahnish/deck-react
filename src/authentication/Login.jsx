@@ -21,7 +21,9 @@ const Login = () => {
 		forgotPassword,
 		register,
 		login,
-		loginGoogle } = useAuthContext();
+		loginGoogle,
+		user
+	} = useAuthContext();
 
 	return (
 		<div
@@ -35,10 +37,10 @@ const Login = () => {
 					<input className="formWidth" placeholder="email..." onChange={(event) => { setRegisterEmail(event.target.value) }} />
 				</div>
 				<div className="center p-2">
-					<input className="formWidth" placeholder="password..." onChange={(event) => { setRegisterPassword(event.target.value) }} />
+					<input type="password" className="formWidth" placeholder="password..." onChange={(event) => { setRegisterPassword(event.target.value) }} />
 				</div>
 				<div className="center p-2">
-					<button className="btn btn-success formWidth" onClick={register}>Create User</button>
+					<button className="btn btn-success formWidth" disabled={user} onClick={register}>Create User</button>
 				</div>
 				<div className="center p-2">
 					<h3>Sign in (email & password)</h3>
@@ -47,10 +49,10 @@ const Login = () => {
 					<input className="formWidth" placeholder="email..." onChange={(event) => { setLoginEmail(event.target.value) }} />
 				</div>
 				<div className="p-2 center">
-					<input className="formWidth" placeholder="password..." onChange={(event) => { setLoginPassword(event.target.value) }} />
+					<input type="password" className="formWidth" placeholder="password..." onChange={(event) => { setLoginPassword(event.target.value) }} />
 				</div>
 				<div className="p-2 center">
-					<button className="btn btn-primary formWidth" onClick={login}>Sign in</button>
+					<button className="btn btn-primary formWidth" disabled={user} onClick={login}>Sign in</button>
 				</div>
 				<div className="center p-2">
 					<h3>Reset password</h3>
@@ -59,13 +61,13 @@ const Login = () => {
 					<input className="formWidth" placeholder="email..." onChange={(event) => { setResetEmail(event.target.value) }} />
 				</div>
 				<div className="center p-2">
-					<button className="btn btn-secondary formWidth" onClick={forgotPassword}>Reset Password</button>
+					<button className="btn btn-secondary formWidth" disabled={user} onClick={forgotPassword}>Reset Password</button>
 				</div>
 				<div className="center p-2">
 					<h3>Sign in with Google</h3>
 				</div>
 				<div className="center p-2">
-					<button className="btn btn-light formWidth" onClick={loginGoogle}><img id="myImg" src={GoogleImage} alt="Google Logo" width="50" height="auto" /></button>
+					<button className="btn btn-light formWidth" disabled ={user} onClick={loginGoogle}><img id="myImg" src={GoogleImage} alt="Google Logo" width="50" height="auto" /></button>
 				</div>
 			</Card>
 		</div>
