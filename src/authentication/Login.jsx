@@ -67,7 +67,7 @@ const Login = () => {
 					<h3>Sign in with Google</h3>
 				</div>
 				<div className="center p-2">
-					<button className="btn btn-light formWidth" disabled ={user} onClick={loginGoogle}><img id="myImg" src={GoogleImage} alt="Google Logo" width="50" height="auto" /></button>
+					<button className="btn btn-light formWidth" disabled={user} onClick={loginGoogle}><img id="myImg" src={GoogleImage} alt="Google Logo" width="50" height="auto" /></button>
 				</div>
 			</Card>
 		</div>

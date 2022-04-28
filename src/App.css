@@ -50,7 +50,7 @@
 
 .cart {
   color: darkblue;
-  font-size: 1.5em;
+  font-size: 1.1em;
 }
 
 .pointer {
@@ -228,7 +228,7 @@ h3 {
   justify-items: center;
   display: flex;
   flex-wrap: nowrap;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 @media screen and (max-width: 900px) {
@@ -374,7 +374,7 @@ img#circle {
   background-color:#007bff;
 }
 
-joker {
+.joker {
   padding:10px;
   display:block;
   background-color: white;
