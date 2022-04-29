@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { SideBarData } from "./SideBarData.js";
 import styled from 'styled-components'
 import '../App.css';
 import SubMenu from './SubMenu.jsx'
@@ -48,21 +49,27 @@ const NavTwo = styled.ul`
     }
 `;
 const queries = {
-	xs: '(max-width: 320px)', //query for xs devices
-	sm: '(max-width: 720px)',
-	md: '(max-width: 1024px)'
+    xs: '(max-width: 320px)', //query for xs devices
+    sm: '(max-width: 720px)',
+    md: '(max-width: 1024px)'
 }
 
 const SideBar = () => {
-	const { user } = useAuthContext;
+    const { user } = useAuthContext;
 
-	return (
-		<Nav>
-			<NavTwo >
-				<SubMenu />
-			</NavTwo>
-		</Nav>
-	)
+    return (
+        <Nav>
+            <NavTwo >
+                <>
+                    {
+                        SideBarData.map((val, key) => {
+                          return  (<SubMenu val={val} key={key}/>)
+                        })
+                    }
+                </>
+            </NavTwo>
+        </Nav>
+    )
 }
 
 export default SideBar;
