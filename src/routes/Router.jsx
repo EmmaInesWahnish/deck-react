@@ -27,7 +27,7 @@ const ThemeRoutes = () => {
 				<Layout>
 					<Routes>
 						<Route
-							path="/"
+							path="/home"
 							element={<Home />}
 						/>
 						<Route path='/authentication' element={<Login />} />
@@ -35,7 +35,7 @@ const ThemeRoutes = () => {
 						<Route path='/logout' element={<Exit />} />
 						<Route path='/notFound' element={<Componente404 />} />
 						<Route path='/*' element={<Navigate to='/' />} />
-						<Route path='/home' element={<Login />} />
+						<Route path='/' element={<Login />} />
 						<Route path='/implementations/' element={<Implementations />} />
 						<Route path='/implementations/datasources' element={<Datasources />} />
 						<Route path='/implementations/ctracking' element={<ConversionTracking />} />

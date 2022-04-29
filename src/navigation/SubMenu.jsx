@@ -8,17 +8,10 @@ const SubMenu = () => {
 	const { user } = useAuthContext;
 	const [subnav, setSubnav] = useState(false);
 
-	let theMenu = [];
-
 	const showSubnav = () => setSubnav(!subnav);
 
-	function fillmenu(array) {
-		theMenu = [];
-		if (subnav) {
-			array.forEach(element => {
-				theMenu.push(element);
-			});
-		}
+	function toggle(value) {
+		value = !value
 	}
 
 	return (
@@ -28,24 +21,30 @@ const SubMenu = () => {
 					return (
 						<>
 							<Link key={key} to={val.path} >
-								<li className='text-light p-2' onClick={val.subNav && showSubnav}>{val.icon} {val.name}
+								<div className='cornsilk p-1' onClick={val.subNav && showSubnav}>{val.icon} {val.name}
 									{val.subNav && subnav
-										? fillmenu(val.subNav)
+										? toggle(val.isOpen)
 										: val.subNav
-											? fillmenu(val.subNav)
+											? toggle(val.isOpen)
 											: null}
-								</li>
-								{
-									subnav && val.subNav && theMenu.map((val, key) => {
-										return (
-											<Link to={val.path}>
-												<li key={key} className='text-light p-2'>
-													{val.icon} {val.name}
-												</li>
-											</Link>
-										)
-									})}
+								</div>
 							</Link>
+							{
+								subnav ?
+									<>
+										{val.subNav && val.subNav.map((val, key) => {
+											return (
+												<Link to={val.path}>
+													<div key={key} className='cream p-2'>
+														{val.icon} {val.name}
+													</div>
+												</Link>
+											)
+										})}
+									</>
+									:
+									<></>
+							}
 						</>
 					)
 				})

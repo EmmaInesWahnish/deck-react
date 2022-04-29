@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
 import styled from 'styled-components'
 import '../App.css';
-import { SideBarData } from "./SideBarData.js";
 import SubMenu from './SubMenu.jsx'
 import { Link } from 'react-router-dom'
 import { useAuthContext } from "../context/AuthContextProvider.jsx"
-import * as AiIcons from "react-icons/ai";
-import * as FaIcons from "react-icons/fa";
 
 const NavIcon = styled(Link)`
 	margin-left: 2rem;
@@ -57,29 +54,11 @@ const queries = {
 }
 
 const SideBar = () => {
-	let theMenu = [];
 	const { user } = useAuthContext;
-	const [subnav, setSubnav] = useState(false);
-
-	const showSubnav = () => setSubnav(!subnav);
-
-	function fillmenu(array) {
-		theMenu = [];
-		if(subnav){
-			array.forEach(element => {
-				theMenu.push(element);
-			});
-		}
-	}
 
 	return (
 		<Nav>
-			<SideBarWrap>
-				<NavIcon to="#">
-					<AiIcons.AiOutlineClose />
-				</NavIcon>
-			</SideBarWrap>
-			<NavTwo>
+			<NavTwo >
 				<SubMenu />
 			</NavTwo>
 		</Nav>

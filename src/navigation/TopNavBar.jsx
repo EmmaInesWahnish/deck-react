@@ -1,10 +1,12 @@
 import Container from 'react-bootstrap/Container'
+import {useState, useEffect} from 'react';
 import Navbar from "react-bootstrap/Navbar"
 import { NavLink } from "react-router-dom";
 import logodarkicon from "../assets/logo-single.png";
 import logodarktext from "../assets/logo-groovinads-33px.png";
 import Widget from '../widget/Widget.jsx';
 import styled from 'styled-components';
+import useMediaQuery from '../helpers/isWide.js';
 
 const HeaderBar = styled.header`
     width: 100%;
@@ -19,7 +21,18 @@ const HeaderBar = styled.header`
 `;
 
 const TopNavBar = () => {
-  const muestro = false;
+  const [muestro, setMuestro] = useState(false);
+  let isMediaWide = useMediaQuery('max-width: 320px');
+
+  useEffect(() => {
+    if (isMediaWide){
+      setMuestro(true);
+    }
+    else{
+      setMuestro(false);
+    }
+    console.log(muestro)
+  }, [isMediaWide]);
 
   return (
     <HeaderBar>

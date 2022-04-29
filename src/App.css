@@ -231,7 +231,7 @@ h3 {
   justify-content: center;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 320px) {
   .flex-container-nav {
     flex-direction: column;
   }
@@ -333,8 +333,11 @@ img#circle {
   color: firebrick;
 }
 
-.purple {
-  color: purple;
+.cream {
+  color: #f3db92;
+}
+.cornsilk {
+  color: cornsilk;
 }
 
 .formWidth {

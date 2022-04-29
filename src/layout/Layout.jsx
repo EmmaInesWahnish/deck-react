@@ -17,7 +17,7 @@ const Wrapper = styled.div`
 `;
 const Main = styled.main`
     position: fixed;
-    height: calc(100% - 185px);
+    height: calc(100% - 200px);
     width: 100%;
     padding: 1em;
     overflow-y: scroll;
