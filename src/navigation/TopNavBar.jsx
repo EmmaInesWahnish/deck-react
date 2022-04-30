@@ -12,8 +12,7 @@ const HeaderBar = styled.header`
     width: 100%;
     padding: 0.5em 1em;
     display: flex;
-    height: 64px;
-    position: fixed;
+    height: auto;
     align-items: center;
     background-color: #fff;
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);
@@ -21,18 +20,8 @@ const HeaderBar = styled.header`
 `;
 
 const TopNavBar = () => {
-  const [muestro, setMuestro] = useState(false);
-  let isMediaWide = useMediaQuery('max-width: 320px');
 
-  useEffect(() => {
-    if (isMediaWide){
-      setMuestro(true);
-    }
-    else{
-      setMuestro(false);
-    }
-    console.log(muestro)
-  }, [isMediaWide]);
+  const muestro = useMediaQuery('max-width: 500px');
 
   return (
     <HeaderBar>

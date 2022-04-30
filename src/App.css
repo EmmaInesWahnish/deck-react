@@ -227,15 +227,15 @@ h3 {
   justify-self: center;
   justify-items: center;
   display: flex;
-  flex-wrap: nowrap;
-  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
-@media screen and (max-width: 320px) {
+/*@media screen and (max-width: 320px) {
   .flex-container-nav {
     flex-direction: column;
   }
-}
+}*/
 
 .flex-item {
   align-self: center;

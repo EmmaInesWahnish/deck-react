@@ -7,9 +7,9 @@ import styled from 'styled-components';
 const Wrapper = styled.div`
     @media (min-width: 700px) {
         display: flex;
-        top: 60px;
+        top: auto;
         position: relative;
-        height: calc(100% - 64px);
+        height: 100%;
         width: 100%;
         flex: auto;
         flex-direction: column;
@@ -24,7 +24,7 @@ const Main = styled.main`
     @media (min-width: 700px) {
         flex: 1;
         margin-left: 260px;
-        height: calc(100% - 64px);
+        height: 100%;
         width: calc(100% - 260px);
 		overflow-y: scroll;
     }
