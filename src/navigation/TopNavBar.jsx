@@ -29,12 +29,8 @@ const TopNavBar = () => {
         <Navbar className="flex-container-nav m-0">
           <NavLink to="/" id="logoSmall" className="nav-link pointer">
             <>
-              {
-                muestro ?
-                  <img src={logodarkicon} alt="logo" />
-                  :
-                  <img src={logodarktext} alt="logo" />
-              }
+                  <img className='customShort'src={logodarkicon} alt="logo" />
+                  <img className='customLong'src={logodarktext} alt="logo" />
             </>
           </NavLink>
           <NavLink to="/authentication"><button className="nav-link pointer btn btn-light btn-lg button"><i className="fas fa-user cart"></i></button></NavLink>

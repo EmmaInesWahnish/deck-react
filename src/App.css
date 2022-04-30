@@ -231,11 +231,22 @@ h3 {
   justify-content: flex-start;
 }
 
-/*@media screen and (max-width: 320px) {
-  .flex-container-nav {
-    flex-direction: column;
+.customLong {
+  display: block;
+}
+.customShort {
+  display: none;
+}
+
+
+@media screen and (max-width: 500px) {
+  .customLong {
+    display: none;
   }
-}*/
+  .customShort {
+    display: block;
+  }
+}
 
 .flex-item {
   align-self: center;
