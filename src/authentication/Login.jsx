@@ -1,4 +1,4 @@
-import img2 from "../assets/login-background.png";
+import img2 from "../assets/backgroundForLogin.png";
 import { useAuthContext } from "../context/AuthContextProvider";
 import { Card } from 'react-bootstrap';
 import GoogleImage from "../assets/IOS_Google_icon.png"
@@ -6,7 +6,7 @@ import GoogleImage from "../assets/IOS_Google_icon.png"
 const sidebarBackground = {
 	backgroundImage: "url(" + img2 + ")",
 	backgroundRepeat: "no-repeat",
-	backgroundPosition: "top right",
+	backgroundPosition: "center right",
 	objectFit: 'contain'
 };
 
