@@ -104,7 +104,7 @@ export const SideBarData = [
 	{
 		name: "Account",
 		path: '/account',
-		icon: <MdIcons.MdConstruction />,
+		icon: <MdIcons.MdManageAccounts />,
 		isOpen: false,
 		hasSubmenu: false,
 	},
