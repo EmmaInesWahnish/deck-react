@@ -5,7 +5,6 @@ import styled from 'styled-components';
 //import { useTranslation } from 'react-i18next';
 
 const SubMenu = ({ val }, { key }) => {
-	const { user } = useAuthContext;
 	const [subnav, setSubnav] = useState(false);
 	//const [t, i18n] = useTranslation("translations");
 	const showSubnav = () => setSubnav(!subnav);

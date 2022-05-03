@@ -7,7 +7,7 @@ import GoogleImage from "../assets/IOS_Google_icon.png"
 const sidebarBackground = {
 	backgroundImage: "url(" + img2 + ")",
 	backgroundRepeat: "no-repeat",
-	backgroundPosition: "center right",
+	backgroundPosition: "center center",
 	objectFit: 'contain'
 };
 
@@ -49,7 +49,7 @@ const Login = () => {
 					<input type="password" className="formWidth" placeholder={t("password")} onChange={(event) => { setLoginPassword(event.target.value) }} />
 				</div>
 				<div className="p-2 center">
-					<button className="btn btn-primary formWidth" disabled={user} onClick={login}>Sign in</button>
+					<button className="btn btn-primary formWidth" disabled={user} onClick={login}>{t("Sign_In")}</button>
 				</div>
 				<div className="center p-2">
 					<input className="formWidth" placeholder={t("email")} onChange={(event) => { setResetEmail(event.target.value) }} />
