@@ -31,19 +31,13 @@ const Login = () => {
 		>
 			<Card className="cardWidth">
 				<div className="center p-2">
-					<h3>Register (email & password)</h3>
-				</div>
-				<div className="center p-2">
 					<input className="formWidth" placeholder="email..." onChange={(event) => { setRegisterEmail(event.target.value) }} />
 				</div>
 				<div className="center p-2">
 					<input type="password" className="formWidth" placeholder="password..." onChange={(event) => { setRegisterPassword(event.target.value) }} />
 				</div>
 				<div className="center p-2">
-					<button className="btn btn-success formWidth" disabled={user} onClick={register}>Create User</button>
-				</div>
-				<div className="center p-2">
-					<h3>Sign in (email & password)</h3>
+					<button className="btn btn-danger formWidth" disabled={user} onClick={register}>Register</button>
 				</div>
 				<div className="p-2 center">
 					<input className="formWidth" placeholder="email..." onChange={(event) => { setLoginEmail(event.target.value) }} />
@@ -53,9 +47,6 @@ const Login = () => {
 				</div>
 				<div className="p-2 center">
 					<button className="btn btn-primary formWidth" disabled={user} onClick={login}>Sign in</button>
-				</div>
-				<div className="center p-2">
-					<h3>Reset password</h3>
 				</div>
 				<div className="center p-2">
 					<input className="formWidth" placeholder="email..." onChange={(event) => { setResetEmail(event.target.value) }} />

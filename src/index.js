@@ -1,13 +1,26 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
+import reportWebVitals from './reportWebVitals';
+import { I18nextProvider} from 'react-i18next';
+import './i18nextConf';
+import i18n from './i18nextConf';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+
+/*function App(){
+  const { t } = useTranslation();
+  return <h2>{t('Welcome_to_React')}</h2>
+}*/
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+
   <React.StrictMode>
-    <App />
+    <I18nextProvider i18n={i18n}>
+      <Suspense fallback='loading ...'>
+        <App />
+      </Suspense>
+    </I18nextProvider>
   </React.StrictMode>
 );
 
