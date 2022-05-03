@@ -1,1 +1,7 @@
-{"unauthorized": "L'accès non autorisé"}
+{"unauthorized": "L'accès non autorisé",
+"Register":"S'inscrire",
+"Sign_In":"S'identifier",
+"Reset_Password":"Réinitialiser mot de passe",
+"password":"mot de passe...",
+"email":"e-mail...",
+"Sign_Google":"S'identifier avec Google"}

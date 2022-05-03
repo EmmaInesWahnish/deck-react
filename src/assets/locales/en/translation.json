@@ -1,1 +1,7 @@
-{"unauthorized": "Unauthorized access"}
+{"unauthorized": "Unauthorized access",
+"Register":"Register",
+"Sign_In":"Sign In",
+"Reset_Password":"Reset Password",
+"password":"password...",
+"email":"email...",
+"Sign_Google":"Sign in with Google"}

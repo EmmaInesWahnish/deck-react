@@ -1,4 +1,5 @@
 import img2 from "../assets/backgroundForLogin.png";
+import { useTranslation } from 'react-i18next';
 import { useAuthContext } from "../context/AuthContextProvider";
 import { Card } from 'react-bootstrap';
 import GoogleImage from "../assets/IOS_Google_icon.png"
@@ -25,37 +26,39 @@ const Login = () => {
 		user
 	} = useAuthContext();
 
+    const [t, i18n] = useTranslation('translation');
+
 	return (
 		<div
 			style={sidebarBackground}
 		>
 			<Card className="cardWidth">
 				<div className="center p-2">
-					<input className="formWidth" placeholder="email..." onChange={(event) => { setRegisterEmail(event.target.value) }} />
+					<input className="formWidth" placeholder={t("email")} onChange={(event) => { setRegisterEmail(event.target.value) }} />
 				</div>
 				<div className="center p-2">
-					<input type="password" className="formWidth" placeholder="password..." onChange={(event) => { setRegisterPassword(event.target.value) }} />
+					<input type="password" className="formWidth" placeholder={t("password")} onChange={(event) => { setRegisterPassword(event.target.value) }} />
 				</div>
 				<div className="center p-2">
-					<button className="btn btn-danger formWidth" disabled={user} onClick={register}>Register</button>
+					<button className="btn btn-danger formWidth" disabled={user} onClick={register}>{t("Register")}</button>
 				</div>
 				<div className="p-2 center">
-					<input className="formWidth" placeholder="email..." onChange={(event) => { setLoginEmail(event.target.value) }} />
+					<input className="formWidth" placeholder={t("email")} onChange={(event) => { setLoginEmail(event.target.value) }} />
 				</div>
 				<div className="p-2 center">
-					<input type="password" className="formWidth" placeholder="password..." onChange={(event) => { setLoginPassword(event.target.value) }} />
+					<input type="password" className="formWidth" placeholder={t("password")} onChange={(event) => { setLoginPassword(event.target.value) }} />
 				</div>
 				<div className="p-2 center">
 					<button className="btn btn-primary formWidth" disabled={user} onClick={login}>Sign in</button>
 				</div>
 				<div className="center p-2">
-					<input className="formWidth" placeholder="email..." onChange={(event) => { setResetEmail(event.target.value) }} />
+					<input className="formWidth" placeholder={t("email")} onChange={(event) => { setResetEmail(event.target.value) }} />
 				</div>
 				<div className="center p-2">
-					<button className="btn btn-secondary formWidth" disabled={user} onClick={forgotPassword}>Reset Password</button>
+					<button className="btn btn-secondary formWidth" disabled={user} onClick={forgotPassword}>{t("Reset_Password")}</button>
 				</div>
 				<div className="center p-2">
-					<h3>Sign in with Google</h3>
+					<h3>{t("Sign_Google")}</h3>
 				</div>
 				<div className="center p-2">
 					<button className="btn btn-light formWidth" disabled={user} onClick={loginGoogle}><img id="myImg" src={GoogleImage} alt="Google Logo" width="50" height="auto" /></button>
