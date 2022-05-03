@@ -13,6 +13,11 @@ import Dco from '../components/Dco.jsx'
 import GlobalOperations from '../components/GlobalOperations.jsx'
 import TagsExport from '../components/TagsExport.jsx'
 import BannerPresentations from '../components/BannerPresentations.jsx'
+import Campaigns from '../components/Campaigns.jsx'
+import Reports from '../components/Reports.jsx'
+import Tools from '../components/Tools.jsx'
+import Account from '../components/Account.jsx'
+import Settings from '../components/Settings.jsx'
 import MediaManager from '../components/MediaManager.jsx'
 import Trackers from '../components/Trackers.jsx';
 import AuthContextProvider from '../context/AuthContextProvider.jsx';
@@ -48,6 +53,11 @@ const ThemeRoutes = () => {
 						<Route path='/banners/mediamanager' element={<MediaManager />} />
 						<Route path='/banners/tagsexport' element={<TagsExport />} />
 						<Route path='/banners/globaloperations' element={<GlobalOperations />} />
+						<Route path='/campaigns/' element={<Campaigns/>}></Route>
+						<Route path='/reports/' element={<Reports/>}></Route>
+						<Route path='/tools/' element={<Tools/>}></Route>
+						<Route path='/account/' element={<Account/>}></Route>
+						<Route path='/settings/' element={<Settings/>}></Route>
 					</Routes>
 				</Layout>
 				<Outlet />

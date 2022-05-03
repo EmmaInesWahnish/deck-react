@@ -96,14 +96,21 @@ export const SideBarData = [
 	},
 	{
 		name: "Tools",
-		path: '/overview/tools',
+		path: '/tools',
+		icon: <MdIcons.MdConstruction />,
+		isOpen: false,
+		hasSubmenu: false,
+	},
+	{
+		name: "Account",
+		path: '/account',
 		icon: <MdIcons.MdConstruction />,
 		isOpen: false,
 		hasSubmenu: false,
 	},
 	{
 		name: "Settings",
-		path: '/overview/settings',
+		path: '/settings',
 		icon: <MdIcons.MdSettings />,
 		isOpen: false,
 		hasSubmenu: false,
