@@ -3,6 +3,10 @@ import { useTranslation } from 'react-i18next';
 import { useAuthContext } from "../context/AuthContextProvider";
 import { Card } from 'react-bootstrap';
 import GoogleImage from "../assets/IOS_Google_icon.png"
+import * as RiIcons from "react-icons/ri";
+import UserPasswordLogin from "../helpers/UserPasswordLogin";
+import googleLogin from '../helpers/GoogleLogin';
+import googleLogout from '../helpers/GoogleLogout';
 
 const sidebarBackground = {
 	backgroundImage: "url(" + img2 + ")",
@@ -49,7 +53,7 @@ const Login = () => {
 					<input type="password" className="formWidth" placeholder={t("password")} onChange={(event) => { setLoginPassword(event.target.value) }} />
 				</div>
 				<div className="p-2 center">
-					<button className="btn btn-primary formWidth" disabled={user} onClick={login}>{t("Sign_In")}</button>
+					<button className="btn btn-primary formWidth" disabled={user} onClick={UserPasswordLogin}>{t("Sign_In")}</button>
 				</div>
 				<div className="center p-2">
 					<input className="formWidth" placeholder={t("email")} onChange={(event) => { setResetEmail(event.target.value) }} />
@@ -61,7 +65,8 @@ const Login = () => {
 					<h3>{t("Sign_Google")}</h3>
 				</div>
 				<div className="center p-2">
-					<button className="btn btn-light formWidth" disabled={user} onClick={loginGoogle}><img id="myImg" src={GoogleImage} alt="Google Logo" width="50" height="auto" /></button>
+					<button className="btn btn-light googleWidth" disabled={user} onClick={googleLogin}><img id="myImg" src={GoogleImage} alt="Google Logo" width="20" height="auto" /></button>
+					<button className="btn btn-light googleWidth" disabled={user} onClick={googleLogout}><RiIcons.RiLogoutCircleRLine /></button>
 				</div>
 			</Card>
 		</div>

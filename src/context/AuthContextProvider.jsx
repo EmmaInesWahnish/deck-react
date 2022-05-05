@@ -1,12 +1,18 @@
 import { createContext, useContext } from "react";
-import { useLocalStorage } from "../helpers/useLocalStorage.js"
+import { useLocalStorage } from "../helpers/useLocalStorage.js";
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { createUserWithEmailAndPassword,
+import LinkGoogle from '../components/LinkGoogle';
+import GoogleLogin from '../helpers/GoogleLogin';
+import GoogleLogout from '../helpers/GoogleLogout';
+import {
+	createUserWithEmailAndPassword,
 	signOut,
 	signInWithEmailAndPassword,
 	signInWithPopup,
 	GoogleAuthProvider,
-	sendPasswordResetEmail } from "firebase/auth";
+	sendPasswordResetEmail
+} from "firebase/auth";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase.config.js";
 
@@ -17,12 +23,14 @@ export const useAuthContext = () => useContext(AuthContext);
 
 function AuthContextProvider({ children }) {
 
-    const [registerEmail, setRegisterEmail] = useState("");
+	const [registerEmail, setRegisterEmail] = useState("");
 	const [registerPassword, setRegisterPassword] = useState("");
 	const [loginEmail, setLoginEmail] = useState("");
 	const [loginPassword, setLoginPassword] = useState("");
 	const [resetEmail, setResetEmail] = useState("");
 	const [user, setUser] = useState({});
+	const [thestate, setTheState] = useState("");
+	const [bool, setBoolean] = useState(true);
 
 	useEffect(() => {
 		const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -62,7 +70,7 @@ function AuthContextProvider({ children }) {
 			const response = await sendPasswordResetEmail(
 				auth,
 				resetEmail,
-				{ url: 'http://localhost:3000/authentication'}
+				{ url: 'http://localhost:3000/authentication' }
 			)
 			console.log(response)
 		} catch (error) {
@@ -71,7 +79,7 @@ function AuthContextProvider({ children }) {
 		}
 	}
 
-	const loginGoogle = async () => {
+	/*const loginGoogle = async () => {
 		const provider = new GoogleAuthProvider();
 		try {
 			const user = await signInWithPopup(
@@ -81,29 +89,50 @@ function AuthContextProvider({ children }) {
 		} catch (error) {
 			console.log(error.message);
 		}
+	}*/
+
+	const LoginGoogle = () => {
+	}
+
+	const askGoogle = () => {
+		return (
+			<Link to={`/ask-google`}>
+				<></>
+			</Link>
+		)
+	}
+
+
+	const LogoutGoogle = () => {
 	}
 
 	const logout = async () => {
 		await signOut(auth);
 	}
 
-    return (
-        <AuthContext.Provider value={{
-            setRegisterEmail,
-            setRegisterPassword,
-            setLoginEmail,
-            setLoginPassword,
+	return (
+		<AuthContext.Provider value={{
+			setRegisterEmail,
+			setRegisterPassword,
+			setLoginEmail,
+			setLoginPassword,
 			setResetEmail,
-            register,
-            login,
-			loginGoogle,
-            logout,
+			setUser,
+			setTheState,
+			setBoolean,
+			register,
+			login,
+			LoginGoogle,
+			LogoutGoogle,
+			askGoogle,
+			logout,
 			forgotPassword,
-            user
-        }}>
-            {children}
-        </AuthContext.Provider>
-    )
+			thestate,
+			user
+		}}>
+			{children}
+		</AuthContext.Provider>
+	)
 }
 
 export default AuthContextProvider

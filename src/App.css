@@ -354,7 +354,9 @@ img#circle {
 .formWidth {
  width: 250px;
 }
-
+.googleWidth {
+  width: 120px;
+ }
 .cardWidth {
   width: 300px;
 }

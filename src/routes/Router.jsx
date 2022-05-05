@@ -18,11 +18,13 @@ import Reports from '../components/Reports.jsx'
 import Tools from '../components/Tools.jsx'
 import Account from '../components/Account.jsx'
 import Settings from '../components/Settings.jsx'
+import LinkGoogle from '../components/LinkGoogle.jsx'
 import MediaManager from '../components/MediaManager.jsx'
 import Trackers from '../components/Trackers.jsx';
 import AuthContextProvider from '../context/AuthContextProvider.jsx';
 import Layout from '../layout/Layout.jsx';
 import Widget from '../widget/Widget.jsx';
+import UseApi from '../components/UseMLA.jsx';
 import Exit from '../exit/Exit.jsx';
 
 const ThemeRoutes = () => {
@@ -58,6 +60,8 @@ const ThemeRoutes = () => {
 						<Route path='/tools/' element={<Tools/>}></Route>
 						<Route path='/account/' element={<Account/>}></Route>
 						<Route path='/settings/' element={<Settings/>}></Route>
+						<Route path='/testapi' element={<UseApi/>}></Route>
+						<Route path='/google' element={<LinkGoogle/>}></Route>
 					</Routes>
 				</Layout>
 				<Outlet />
