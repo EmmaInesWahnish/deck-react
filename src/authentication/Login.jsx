@@ -4,7 +4,7 @@ import { useAuthContext } from "../context/AuthContextProvider";
 import { Card } from 'react-bootstrap';
 import GoogleImage from "../assets/IOS_Google_icon.png"
 import * as RiIcons from "react-icons/ri";
-import UserPasswordLogin from "../helpers/UserPasswordLogin";
+//import UserPasswordLogin from "../helpers/UserPasswordLogin";
 import googleLogin from '../helpers/GoogleLogin';
 import googleLogout from '../helpers/GoogleLogout';
 
@@ -27,6 +27,7 @@ const Login = () => {
 		register,
 		login,
 		loginGoogle,
+		UserPasswordLogin,
 		user
 	} = useAuthContext();
 

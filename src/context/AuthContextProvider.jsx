@@ -78,6 +78,22 @@ function AuthContextProvider({ children }) {
 			console.log(error.message);
 		}
 	}
+	const UserPasswordLogin = async () => {
+		try {
+			const formData = new FormData();
+			formData.append("username", loginEmail);
+			formData.append("password", loginPassword)
+			await fetch('/v2/auth/password/login',
+			{
+				method: "POST",
+				body: formData,
+			})
+			.then((response) => response.json())
+			.catch((err) => console.log(err))
+		} catch (error) {
+			console.log(error.message);
+		}
+	}
 
 	/*const loginGoogle = async () => {
 		const provider = new GoogleAuthProvider();
@@ -127,6 +143,7 @@ function AuthContextProvider({ children }) {
 			askGoogle,
 			logout,
 			forgotPassword,
+			UserPasswordLogin,
 			thestate,
 			user
 		}}>
