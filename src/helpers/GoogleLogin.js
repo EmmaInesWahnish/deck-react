@@ -1,12 +1,8 @@
-import { useState, useEffect } from "react";
-
-const GoogleLogin = () => {
+const GoogleLogin = async () => {
 	try {
-		const formData =//useEffect(() => {
-		fetch('https://api.groovinads.com/v2/auth/google/auth_url')
+		await fetch('/v2/auth/google/auth_url')
 			.then((response) => response.json())
 			.catch((err) => console.log(err))
-		//	}, []);
 	} catch (error) {
 		console.log(error.message);
 	}

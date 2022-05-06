@@ -1,19 +1,17 @@
-import { useState, useEffect } from "react";
-const GoogleLogout = () => {
+const GoogleLogout = async () => {
 	try {
-		//useEffect(() => {
-		// POST request using fetch inside useEffect React hook
-		const requestOptions = {
+		const formData = new FormData();
+		formData.append("username", "emma.wahnish@groovinads.com");
+		await fetch('/v2/auth/logout',
+		{
 			method: 'POST',
-			mode: 'no-cors',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({ title: 'Logout Google' })
-		};
-		fetch('https://api.groovinads.com/v2/auth/logout', requestOptions)
-			.then(res => res.json());
+			body: formData,
+		}
+		)
+		.then((response) => response.json())
+		.catch((err) => console.log(err))
+	.then
 
-		// empty dependency array means this effect will only run once (like componentDidMount in classes)
-		//}, []);
 	} catch (error) {
 		console.log(error.message);
 	}
